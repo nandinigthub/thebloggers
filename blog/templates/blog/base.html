@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type='text/css' href="{% static 'blog/main.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'blog\images\blogicon.jpg' %}" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% if title %}
+  <title>Django Blog - {% block title %}
+    {% endblock title %}
+  </title>
+  {% else %}
+  <title>Django Blog</title>
+  {% endif %}
+  <link href="{% static 'css/media_query.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/owl.theme.default.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'css/style_1.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Modernizr JS -->
+  <script src="{% static 'js/modernizr-3.5.0.min.js' %}"></script>
+</head>
+</head>
+
+
+<body>
+  <!-- <h1>{% block heading %}{% endblock heading %}</h1> -->
+
+  <body>
+    <div class="container-fluid fh5co_header_bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 fh5co_mediya_center"><a href="#" class="color_fff fh5co_mediya_setting"><i
+                class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ object.date|date:"F d, Y" }}</a>
+            <div class="d-inline-block fh5co_trading_posotion_relative"><a href="#" class="treding_btn">Trending</a>
+              <div class="fh5co_treding_position_absolute"></div>
+            </div>
+            <a href="#" class="color_fff fh5co_mediya_setting">Explore daily blogs here from around the world.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3 fh5co_padding_menu h2">THE BLOGGERS
+            <!-- <img src="{% static 'blog\images\blogicon.jpg' %}" alt="img" class="fh5co_logo_width" /> -->
+          </div>
+          <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
+            <div class="text-center d-inline-block">
+              <a class="fh5co_display_table">
+                <div class="fh5co_verticle_middle"><i class="fa fa-search"></i></div>
+              </a>
+            </div>
+            <div class="text-center d-inline-block">
+              <a class="fh5co_display_table">
+                <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+              </a>
+            </div>
+            <div class="text-center d-inline-block">
+              <a class="fh5co_display_table">
+                <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+              </a>
+            </div>
+            <div class="text-center d-inline-block">
+              <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table">
+                <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+              </a>
+            </div>
+            <div class="text-center d-inline-block">
+              <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table">
+                <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+              </a>
+            </div>
+            <!--<div class="d-inline-block text-center"><img src="images/country.png" alt="img" class="fh5co_country_width"/></div>-->
+            <div class="d-inline-block text-center dd_position_relative ">
+              <select class="form-control fh5co_text_select_option">
+                <option>English </option>
+                <option>French </option>
+                <option>German </option>
+                <option>Spanish </option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+      <div class="container padding_786">
+        <nav class="navbar navbar-toggleable-md navbar-light ">
+          <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+          <a class="navbar-brand" href="#"><img src="images/logo.png" alt="img" class="mobile_logo_width" /></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog-home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'blog-about' %}">Blog <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'post-create' %}">New <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Account<span class="sr-only">(current)</span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                  {% if user.is_authenticated %}
+                  <a class="dropdown-item" href="{% url 'profile' %}">profile</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Log out </a>
+
+                  {% else %}
+                  <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                  <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+
+                  {% endif %}
+                </div>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="#footer">Contact <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+   
+ 
+        {% block content %} {% endblock content %}
+        
+        {% block content00 %} {% endblock content00 %}
+
+        {% block content1 %} {% endblock content1 %}
+
+
+        
+          
+<div id="footer">
+  <div class="container-fluid fh5co_footer_bg pb-3">
+      <div class="container animate-box">
+          <div class="row">
+              <div class="col-12 spdp_right py-5 h2">THE BLOGGERS</div>
+              <div class="clearfix"></div>
+              <div class="col-12 col-md-4 col-lg-3">
+                  <div class="footer_main_title py-3"> About</div>
+                  <div class="footer_sub_about pb-3"> Lorem Ipsum is simply dummy text of the printing and typesetting
+                      industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                      unknown printer took a galley of type and scrambled it to make a type specimen book.
+                  </div>
+                  <div class="footer_mediya_icon">
+                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                          <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+                      </a></div>
+                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                          <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                      </a></div>
+                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                          <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                      </a></div>
+                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                          <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                      </a></div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-3 col-lg-2">
+                  <div class="footer_main_title py-3"> Category</div>
+                  <ul class="footer_menu">
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Business</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Entertainment</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Environment</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li></ul></div>
+              <div class="col-12 col-md-3 col-lg-2">
+                  <div class="footer_main_title py-3">Tags</div>
+                  <ul class="footer_menu">
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Business</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Entertainment</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Environment</a></li>
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li></ul></div>
+                      
+            
+          </div>
+          <div class="row justify-content-center pt-2 pb-4">
+              <div class="col-12 col-md-8 col-lg-7 ">
+                <form method="post">
+                  {% csrf_token %}
+                  <p>To:</p>
+                  <input type="email" name="email" placeholder="write your recipient"><br>
+  
+                  <p>subject:</p>
+                  <input type="text" name="subject" placeholder="write your subject here"><br>
+                  <p>Enter message:</p>
+                  <textarea name="message" placeholder="write your message here" style="height:150px;" ></textarea><br>
+                
+                  {% if user.is_authenticated %}
+                  <button class="btn1" type="submit" style="margin:10px 0;" > Send Email</button>
+                  {% else %}
+                  <button class="btn1" type="submit" >Send Email</button>
+                  {% endif %}
+                  {{ form }}        
+              </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid fh5co_footer_right_reserved">
+      <div class="container">
+          <div class="row  ">
+              <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2022, All rights reserved. Design by Nandini Gattani</a>. </div>
+              <div class="col-12 col-md-6 spdp_right py-4">
+                  <a href="#" class="footer_last_part_menu">Home</a>
+                  <a href="contact_us.html" class="footer_last_part_menu">About</a>
+                  <a href="contact_us.html" class="footer_last_part_menu">New</a>
+                  <a href="blog.html" class="footer_last_part_menu">Contact</a></div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <div class="gototop js-top">
+      <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+          integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+          integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+          crossorigin="anonymous"></script>
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+  <!-- Main -->
+  <script src="js/main.js"></script>
+ 
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

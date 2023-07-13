@@ -1,0 +1,98 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                </div>
+
+                {% for object in posts %}
+                <article class="media content-section">
+                    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-2" href=#>{{ object.author }}</a>
+                            <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
+                        </div>
+                        <h2 class="article-title"><a href="{% url 'post-detail' object.id %}">{{ object.title }}</a>
+                        </h2>
+                        <p class="article-content">{{ object.content }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">first</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+
+                {% elif num > page_obj.number|add:'-3' and page_obj.number|add:'3' > num %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+                {% endfor %}
+
+
+                {% if page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">last</a>
+                {% endif %}
+                {% endif %}
+
+            </div>
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+
+                    {% if tag %}
+                    <h2 class="mb-3">Posts tagged with "{{ tag.name }}"</h2>
+                    {% endif %}
+                    <a href="#" class="fh5co_tagg">Business</a>
+                    <a href="#" class="fh5co_tagg">Technology</a>
+                    <a href="#" class="fh5co_tagg">Sport</a>
+                    <a href="#" class="fh5co_tagg">Design</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Nature</a>
+                    <a href="#" class="fh5co_tagg">Photography</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Education</a>
+                    <a href="#" class="fh5co_tagg">Social</a>
+                    <a href="#" class="fh5co_tagg">Science</a>
+                </div>
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light">{% for object in posts %}
+                        <article class="media content-section">
+                            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+                            <div class="media-body">
+                                <div class="article-metadata">
+                                    <a class="mr-2" href=#>{{ object.author }}</a><br>
+                                    <small class="text-muted">{{ object.date|date:"F d" }} | 5 min read</small>
+                                </div>
+                                <h4 class="article-title"><a href="{% url 'post-detail' object.id %}">{{ object.title }}</a></h4>
+                                <!-- <p class="article-content">{{ object.content }}</p> -->
+                                <p class="showarticle"><a href="{% url 'blog-home' %}">Show article</a></p>
+
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
