@@ -104,7 +104,7 @@ def email(request):
     if request.method == 'POST':
         
         subject = "Subscribed to newsletter"
-        message = "You subscribed to our newsletter. Get daily notifications from the bloggers"
+        message = "You subscribed to THEBLOGGERS newsletter. Get daily notifications from the bloggers"
         email= request.POST.get('email')
 
         print('subject',subject )

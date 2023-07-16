@@ -139,11 +139,13 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('Email_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 EMAIL_USE_SSL = False
 # EMAIL_HOST_USER = 'nandinigattani9082@gmail.com'
-EMAIL_HOST_PASSWORD = 'alpwardqehzdkhjt'
+# EMAIL_HOST_PASSWORD = 'alpwardqehzdkhjt'
 # POST_REDIRECT_URL = 'post-detail'
+# EMAIL_HOST_USER = 'gattaninandini02@gmail.com'
+# EMAIL_HOST_PASSWORD = 'emwomlxgaidxdknb'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

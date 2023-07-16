@@ -194,42 +194,35 @@
                       <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Business</a></li>
                       <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Entertainment</a></li>
                       <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Environment</a></li>
-                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li></ul></div>
-                      
-            
-          </div>
-          <div class="row justify-content-center pt-2 pb-4">
-              <div class="col-12 col-md-8 col-lg-7 ">
+                      <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li></ul></div
+              </div>
+
+              <div class="col-12 col-md-3 col-lg-2">
+                <div class="footer_main_title py-3"> Contact</div>
+                <p>Subscribe to Our Newsletter</p>
                 <form method="post">
                   {% csrf_token %}
-                  <p>To:</p>
-                  <input type="email" name="email" placeholder="write your recipient"><br>
-  
-                  <p>subject:</p>
-                  <input type="text" name="subject" placeholder="write your subject here"><br>
-                  <p>Enter message:</p>
-                  <textarea name="message" placeholder="write your message here" style="height:150px;" ></textarea><br>
-                
-                  {% if user.is_authenticated %}
-                  <button class="btn1" type="submit" style="margin:10px 0;" > Send Email</button>
-                  {% else %}
-                  <button class="btn1" type="submit" >Send Email</button>
-                  {% endif %}
-                  {{ form }}        
-              </form>
+                <input class = "email" name= "email" style = "padding-top: .5rem ; border:2px ; border-radius: 5px;">
+                <button class="btn1" type="submit" style="margin:10px 0;" > Send Email</button>
+                </form>
               </div>
-          </div>
-      </div>
-  </div>
-  <div class="container-fluid fh5co_footer_right_reserved">
-      <div class="container">
+             
+          
+                <div class="col-12 col-md-3 col-lg-2">
+                  <div class="footer_main_title py-3"> Terms and conditions</div>
+                  <p>Read privacy policy</p>
+                </div>
+              </div>
+
+  <div class="container-fluid fh5co_footer_right_reserved" style = "background: tranparent">
+      <div class="container" >
           <div class="row  ">
               <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2022, All rights reserved. Design by Nandini Gattani</a>. </div>
               <div class="col-12 col-md-6 spdp_right py-4">
-                  <a href="#" class="footer_last_part_menu">Home</a>
-                  <a href="contact_us.html" class="footer_last_part_menu">About</a>
-                  <a href="contact_us.html" class="footer_last_part_menu">New</a>
-                  <a href="blog.html" class="footer_last_part_menu">Contact</a></div>
+                  <a href="{% url 'blog-home' %}" class="footer_last_part_menu">Home</a>
+                  <a href="{% url 'blog-home' %}" class="footer_last_part_menu">About</a>
+                  <a href="{% url 'blog-home' %}" class="footer_last_part_menu">New</a>
+                  <a href="{% url 'blog-home' %}" class="footer_last_part_menu">Contact</a></div>
           </div>
       </div>
   </div>
