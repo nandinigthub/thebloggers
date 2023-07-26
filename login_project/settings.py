@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u6n8uq47610zq5b6t_(vg_55$dt^%x5o&%te8wdqrm-_v*vxr*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -151,3 +151,6 @@ EMAIL_USE_SSL = False
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# STATICFILES_DIRS = os.path.join(BASE_DIR/user,'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
